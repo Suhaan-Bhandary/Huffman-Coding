@@ -4,7 +4,7 @@
 
 A Simple React App for visualizing Huffman Coding concept built in 1 Day Challenge.
 
-There are two modes in this application, one mode allows live generation of the tree and the other mode generates the tree when ever the button is pressed.
+Live Updation of Tree as the message Changes
 
 ## Features
 

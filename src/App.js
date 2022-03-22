@@ -6,50 +6,32 @@ import BinaryTree from "./components/BinaryTree/BinaryTree";
 const App = () => {
   const [root, setRoot] = useState(null);
   const [codes, setCodes] = useState(null);
-  const [liveUpdate, setLiveUpdate] = useState(false);
   const [message, setMessage] = useState("");
 
-  const getHuffmanTree = () => {
-    let [node, huffmanCodes] = generateHuffmanTree(message);
-    setRoot(node);
-    setCodes(huffmanCodes);
-  };
-
-  const getEncodedString = () => {
-    let result = "";
-    for (let i = 0; i < message.length; i++) {
-      result += codes.get(message[i]);
-    }
-    return result;
-  }
-
-  const getEncodedStringSize = () => {
-    let result = "";
-    for (let i = 0; i < message.length; i++) {
-      result += codes.get(message[i]);
-    }
-    return result.length;
-  };
-
-  const getFixedEncodedStringSize = () => {
-    let letters = new Set([...message]);   
-    const n = letters.size; 
-    console.log(n, message.length);
-    return message.length * Math.floor(Math.log2(n) + 1);
-  }
-
-  const getFixedEncodedStringCharSize = () => {
-    let letters = new Set([...message]);
-    return letters.size; 
-  };
+  const [encodedString, setEncodedString] = useState("");
+  const [fixedEncodedStringSize, setFixedEncodedStringSize] = useState(0);
+  const [fixedEncodedCharSize, setFixedEncodedCharSize] = useState(0);
 
   useEffect(() => {
-    if (!liveUpdate || message.length === 0) return;
+    if (message.length === 0) return;
 
     let [node, huffmanCodes] = generateHuffmanTree(message);
     setRoot(node);
     setCodes(huffmanCodes);
-  }, [liveUpdate, message]);
+
+    // Updating the variables
+    let result = "";
+    for (let i = 0; i < message.length; i++) {
+      result += huffmanCodes.get(message[i]);
+    }
+    setEncodedString(result);
+
+    // Calculating the Fixed Size Coding
+    let letters = new Set([...message]);
+    const n = letters.size;
+    setFixedEncodedCharSize(n);
+    setFixedEncodedStringSize(message.length * Math.floor(Math.log2(n) + 1));
+  }, [message]);
 
   return (
     <div className="App">
@@ -61,27 +43,19 @@ const App = () => {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            placeholder="Enter your message..."
           />
-          <button type="button" onClick={getHuffmanTree}>
-            Generate
-          </button>
         </div>
-
-        <p className="liveUpdateContainer">
-          Live Update:{" "}
-          <input
-            type="checkbox"
-            checked={liveUpdate}
-            onChange={() => setLiveUpdate(!liveUpdate)}
-          />
-        </p>
 
         <div className="decodeValueContainer">
           {codes && (
             <>
-              <p>Encoded String: {getEncodedString()}</p>
-              <p>Huffman Code Size: {getEncodedStringSize()}</p>
-              <p>Fixed Encoded Size: {getFixedEncodedStringSize()} [{getFixedEncodedStringCharSize()}]</p>
+              <p>Encoded String: {encodedString}</p>
+              <p>Huffman Code Size: {encodedString.length}</p>
+              <p>
+                Fixed Encoded Size: {fixedEncodedStringSize} [
+                {fixedEncodedCharSize}]
+              </p>
 
               <p>Encoding for Each Character</p>
               <div className="encodedValues">
