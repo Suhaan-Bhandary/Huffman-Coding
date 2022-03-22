@@ -58,6 +58,10 @@
   flex-wrap: wrap;
 }
 
+.encodedValues > p {
+  width: 30%;
+}
+
 .binaryTreeContainer {
   width: 100%;
   flex: 1;
@@ -69,4 +73,14 @@
 footer {
   margin-top: auto;
   margin-inline: auto;
+}
+
+footer p {
+  padding: 1rem;
+}
+
+@media (min-width: 45em) {
+  .encodedValues > p {
+    width: 5rem;
+  }
 }
