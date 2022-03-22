@@ -1,5 +1,5 @@
 // Heap Implementation at NPM Package: github.com/qiao/heap.js
-import Heap from 'heap';
+import Heap from "heap";
 
 // Creating a tree
 class Node {
@@ -13,20 +13,20 @@ class Node {
 }
 
 const getEncoding = (node, code, huffmanCodes) => {
-  if(node == null) return;
+  if (node == null) return;
 
-  if(node.left == null && node.right == null){
+  if (node.left == null && node.right == null) {
     huffmanCodes.set(node.value, code);
   }
 
-  if(node.left != null){
+  if (node.left != null) {
     getEncoding(node.left, code + "0", huffmanCodes);
   }
 
   if (node.right != null) {
     getEncoding(node.right, code + "1", huffmanCodes);
   }
-}
+};
 
 const generateHuffmanTree = (message) => {
   // First calculate the frequency for every character
@@ -38,6 +38,11 @@ const generateHuffmanTree = (message) => {
     } else {
       freq.set(message[i], 1);
     }
+  }
+
+  if (freq.size === 1) {
+    if (message[0] !== "*") freq.set("*", 0);
+    else freq.set("+", 0);
   }
 
   // Display the Frequencies
@@ -58,7 +63,7 @@ const generateHuffmanTree = (message) => {
     let temp1 = minHeap.pop();
     let temp2 = minHeap.pop();
     let newFrequency = temp1.frequency + temp2.frequency;
-    
+
     let node = new Node(-1);
     node.frequency = newFrequency;
     node.left = temp1;
@@ -72,10 +77,10 @@ const generateHuffmanTree = (message) => {
   // Get Encoding
   const huffmanCodes = new Map();
   getEncoding(root, "", huffmanCodes);
- 
+
   // console.log(huffmanCodes);
   // console.log(root);
- 
+
   return [root, huffmanCodes];
 };
 
