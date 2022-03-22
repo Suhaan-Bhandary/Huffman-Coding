@@ -1,38 +1,64 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-inline: 1rem;
+  text-align: center;
+  padding: 1rem;
+  padding-bottom: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.mainPanel {
+  border: 2px solid black;
+  padding: 1rem;
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputContainer{
+  display: flex;
+  gap: 10px;
+}
+
+.inputContainer input{
+  font-size: 0.9rem;
+  padding: 3px;
+}
+
+.inputContainer button{
+  padding: 0.5rem 1rem;
+  background: #24a0ed;
+  color: #fff;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.decodeValueContainer{
+  margin-top: 1.5rem;
+}
+
+.encodedValues {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.encodedValues p{
+  margin-right: 3rem;
+}
+
+.binaryTreeContainer {
+  width: 100%;
+  flex: 1;
+  border: 2px solid black;
+  overflow: auto;
+  padding: 2rem;
+}
+
+footer {
+  margin-top: auto;
+  margin-inline: auto;
 }

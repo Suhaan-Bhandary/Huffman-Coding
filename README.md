@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Huffman Coding
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[@Huffman Project Demo](https://suhaan-bhandary.github.io/Huffman-Coding/)
 
-## Available Scripts
+A Simple React App for visualizing Huffman Coding concept built in 1 Day Challenge.
 
-In the project directory, you can run:
+There are two modes in this application, one mode allows live generation of the tree and the other mode generates the tree when ever the button is pressed.
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Visualization of Huffman coding
+- Live Changes in Tree on message Change
+- Binary Tree with CSS
+  
+## Author
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [@SuhaanBhandary](https://github.com/Suhaan-Bhandary)
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+View using GitHub pages
 
-### `yarn build`
+```bash
+Visit https://suhaan-bhandary.github.io/Huffman-Coding/
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Making Changes and trying it!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+1. Its a React code so just fork it and download the code on you device.
+2. Open CMD and go to the project directory and run "yarn add"
+3. Then run the code with: "yarn start" and enjoy!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 About Me
 
-### `yarn eject`
+Second Year student at K. K. Wagh Institute Of Engineering Education And Research
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔗 Links
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suhaan-bhandary/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> Known Issues
+>
+> 1. The Tree overflows from the container if the width of the tree exceeds by some limit.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to **Code with Ahsan** and https://codepen.io/Avaneesh/pen/QWwNrBX?editors=1100 for providing the Binary Tree Design structure in HTML, CSS and JS

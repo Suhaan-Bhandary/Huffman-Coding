@@ -1,0 +1,137 @@
+.node {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 5px 0 5px;
+
+  align-items: center;
+}
+
+/* Creating the connectors */
+.BinaryTree .node::before,
+.BinaryTree .node::after {
+  position: absolute;
+  top: 0;
+  right: 50%;
+
+  width: 50%;
+  height: 20px;
+
+  content: "";
+
+  border-top: 1px solid black;
+}
+
+.BinaryTree .node::after {
+  right: auto;
+  left: 50%;
+  border-left: 1px solid black;
+}
+
+.BinaryTree .node:only-child::after,
+.BinaryTree .node:only-child::before {
+  display: none;
+}
+
+.BinaryTree .node:first-child::before,
+.BinaryTree .node:last-child::after {
+  border: 0 none;
+}
+
+/*Adding back the vertical connector to the last nodes*/
+.BinaryTree .node:last-child::before {
+  border-right: 1px solid black;
+  border-radius: 0 5px 0 0;
+}
+
+.BinaryTree .node:first-child::after {
+  border-radius: 5px 0 0 0;
+}
+
+.node__bottom_line {
+  width: 1px;
+  height: 2rem;
+
+  background-color: black;
+}
+
+.node__children {
+  display: flex;
+}
+
+.node__element {
+  display: flex;
+
+  width: 40px;
+
+  border: 1px solid black;
+  border-radius: 50%;
+
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 1.5rem;
+}
+
+.leafNodes{
+    background-color: lightgreen;
+}
+
+/* Lonely nodes means that it doesnot have siblings */
+.lonelyNodeLeft {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 5px 0 5px;
+
+  transform: translateX(-3rem);
+
+  align-items: center;
+}
+
+.lonelyNodeLeft::after {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 3rem;
+  height: 20px;
+
+  content: "";
+
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 5px 0 0 0;
+}
+
+.lonelyNodeRight {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 5px 0 5px;
+
+  transform: translateX(3rem);
+
+  align-items: center;
+}
+
+.lonelyNodeRight::after {
+  position: absolute;
+  top: 0;
+  right: 50%;
+
+  width: 3rem;
+  height: 20px;
+
+  content: "";
+
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 0 5px 0 0;
+}
