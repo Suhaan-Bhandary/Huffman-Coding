@@ -1,3 +1,7 @@
+.BinaryTree{
+  width: fit-content;
+}
+
 .node {
   position: relative;
 

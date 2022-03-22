@@ -42,6 +42,6 @@ Second Year student at K. K. Wagh Institute Of Engineering Education And Researc
 
 > Known Issues
 >
-> 1. The Tree overflows from the container if the width of the tree exceeds by some limit.
+> 1. [Solved] ~~The Tree overflows from the container if the width of the tree exceeds by some limit~~
 
 Thanks to **Code with Ahsan** and https://codepen.io/Avaneesh/pen/QWwNrBX?editors=1100 for providing the Binary Tree Design structure in HTML, CSS and JS
