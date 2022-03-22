@@ -61,7 +61,7 @@ const App = () => {
               <div className="encodedValues">
                 {[...codes.keys()].map((code) => {
                   return (
-                    <p keys={codes.get(code)}>
+                    <p key={codes.get(code)}>
                       {code}: {codes.get(code)}
                     </p>
                   );
