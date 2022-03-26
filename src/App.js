@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import generateHuffmanTree from "./utils/generateHuffmanTree";
 import BinaryTree from "./components/BinaryTree/BinaryTree";
 
+import { FaArrowUp } from "react-icons/fa";
+
 const App = () => {
   const [root, setRoot] = useState(null);
   const [codes, setCodes] = useState(null);
@@ -11,6 +13,9 @@ const App = () => {
   const [encodedString, setEncodedString] = useState("");
   const [fixedEncodedStringSize, setFixedEncodedStringSize] = useState(0);
   const [fixedEncodedCharSize, setFixedEncodedCharSize] = useState(0);
+
+  const [normalBinarySize, setNormalBinarySize] = useState(0);
+  const [bitsSaved, setBitsSaved] = useState(null);
 
   useEffect(() => {
     if (message.length === 0) return;
@@ -29,8 +34,13 @@ const App = () => {
     // Calculating the Fixed Size Coding
     let letters = new Set([...message]);
     const n = letters.size;
-    setFixedEncodedCharSize(n);
+    setFixedEncodedCharSize(Math.floor(Math.log2(n) + 1));
     setFixedEncodedStringSize(message.length * Math.floor(Math.log2(n) + 1));
+
+    // Set the binary size
+    setNormalBinarySize(message.length * 8);
+
+    setBitsSaved(message.length * 8 - result.length);
   }, [message]);
 
   return (
@@ -39,8 +49,9 @@ const App = () => {
 
       <section className="mainPanel">
         <div className="inputContainer">
-          <input
+          <textarea
             type="text"
+            rows="5"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Enter your message..."
@@ -50,14 +61,32 @@ const App = () => {
         <div className="decodeValueContainer">
           {codes && (
             <>
-              <p>Encoded String: {encodedString}</p>
-              <p>Huffman Code Size: {encodedString.length}</p>
               <p>
-                Fixed Encoded Size: {fixedEncodedStringSize} [
-                {fixedEncodedCharSize}]
+                <span className="uppercase text-neon-g">Encoded String: </span>
+                {encodedString}
+              </p>
+              <p>
+                <span className="uppercase text-neon-g">
+                  Huffman Code Size:{" "}
+                </span>
+                {encodedString.length}
+              </p>
+              <p>
+                <span className="uppercase text-neon-g">
+                  Fixed Encoded Size:{" "}
+                </span>
+                {fixedEncodedStringSize} [{fixedEncodedCharSize}]
+              </p>
+              <p>
+                <span className="uppercase text-neon-g">
+                  Binary Encoded Size:{" "}
+                </span>
+                {normalBinarySize} [8]
               </p>
 
-              <p>Encoding for Each Character</p>
+              <p className="uppercase text-neon-g">
+                Encoding for Each Character
+              </p>
               <div className="encodedValues">
                 {[...codes.keys()].map((code) => {
                   return (
@@ -74,6 +103,10 @@ const App = () => {
 
       <div className="binaryTreeContainer">
         <BinaryTree root={root} />
+        {bitsSaved && <div className="arrow-container">
+          <FaArrowUp className="arrow-up" />
+          <p>{bitsSaved} Bits Saved!!</p>
+        </div>}
       </div>
 
       <footer>

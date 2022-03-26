@@ -1,5 +1,6 @@
-.BinaryTree{
+.BinaryTree {
   width: fit-content;
+  margin: 0 auto;
 }
 
 .node {
@@ -25,13 +26,13 @@
 
   content: "";
 
-  border-top: 1px solid black;
+  border-top: 1px solid white;
 }
 
 .BinaryTree .node::after {
   right: auto;
   left: 50%;
-  border-left: 1px solid black;
+  border-left: 1px solid white;
 }
 
 .BinaryTree .node:only-child::after,
@@ -46,7 +47,7 @@
 
 /*Adding back the vertical connector to the last nodes*/
 .BinaryTree .node:last-child::before {
-  border-right: 1px solid black;
+  border-right: 1px solid white;
   border-radius: 0 5px 0 0;
 }
 
@@ -58,7 +59,7 @@
   width: 1px;
   height: 2rem;
 
-  background-color: black;
+  background-color: white;
 }
 
 .node__children {
@@ -70,17 +71,23 @@
 
   width: 40px;
 
-  border: 1px solid black;
+  /* border: 1px solid white; */
   border-radius: 50%;
 
   aspect-ratio: 1/1;
   justify-content: center;
   align-items: center;
   margin-inline: 1.5rem;
+
+  background-color: #fff;
 }
 
-.leafNodes{
-    background-color: lightgreen;
+.leafNodes {
+  /* background-color: lightgreen; */
+  background-color: var(--neon-green);
+
+  color: var(--dark-blue-black);
+  font-weight: 600;
 }
 
 /* Lonely nodes means that it doesnot have siblings */
@@ -107,8 +114,8 @@
 
   content: "";
 
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
   border-radius: 5px 0 0 0;
 }
 
@@ -135,7 +142,7 @@
 
   content: "";
 
-  border-top: 1px solid black;
-  border-right: 1px solid black;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
   border-radius: 0 5px 0 0;
 }

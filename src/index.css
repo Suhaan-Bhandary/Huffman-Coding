@@ -4,6 +4,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  color: white;
+}
+
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+
+  --dark-blue-black: hsl(227, 49%, 15%);
 }
 
 body {
@@ -22,4 +34,8 @@ code {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.text-neon-g{
+  color: var(--neon-green);
 }

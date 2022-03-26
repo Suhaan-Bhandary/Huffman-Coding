@@ -6,12 +6,25 @@
   flex-direction: column;
   padding-inline: 1rem;
   text-align: center;
-  padding: 1rem;
   padding-bottom: 0;
+
+  background: var(--dark-blue);
+}
+
+.shrink {
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+}
+
+.App h1 {
+  padding-block: 0.5rem;
 }
 
 .mainPanel {
-  border: 2px solid black;
+  background: var(--dark-grayish-blue);
+  /* border: 2px solid black; */
   padding: 1rem;
   text-align: left;
 }
@@ -21,22 +34,13 @@
   gap: 10px;
 }
 
-.inputContainer input {
+.inputContainer textarea {
+  color: var(--dark-blue-black);
+  width: 100%;
   font-size: 0.9rem;
-  padding: 3px;
-}
-
-.inputContainer button {
-  padding: 0.5rem 1rem;
-  background: #24a0ed;
-  color: #fff;
-  font-weight: bold;
-  outline: none;
-  border: none;
-  font-size: 0.9rem;
+  padding: 0.5rem;
   border-radius: 5px;
-
-  cursor: pointer;
+  resize: vertical;
 }
 
 .decodeValueContainer {
@@ -65,9 +69,45 @@
 .binaryTreeContainer {
   width: 100%;
   flex: 1;
-  border: 2px solid black;
+  border-top: 2px solid var(--dark-blue);
   overflow: auto;
   padding: 2rem;
+
+  background: var(--dark-grayish-blue);
+  position: relative;
+}
+
+.arrow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.arrow-container .arrow-up {
+  fill: #4bb543;
+  font-size: 2rem;
+  animation: arrow-up-down 1.3s infinite linear;
+}
+
+@keyframes arrow-up-down {
+  0% {
+    transform: translateY(0.25rem);
+  }
+
+  50% {
+    transform: translateY(-0.25rem);
+  }
+
+  100% {
+    transform: translateY(0.25rem);
+  }
+}
+
+.arrow-container p {
+  color: #4bb543;
+  font-size: 1rem;
 }
 
 footer {
