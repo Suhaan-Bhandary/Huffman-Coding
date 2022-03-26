@@ -4,6 +4,7 @@ import generateHuffmanTree from "./utils/generateHuffmanTree";
 import BinaryTree from "./components/BinaryTree/BinaryTree";
 
 import { FaArrowUp } from "react-icons/fa";
+import ReadMore from "./components/ReadMore/ReadMore";
 
 const App = () => {
   const [root, setRoot] = useState(null);
@@ -63,7 +64,7 @@ const App = () => {
             <>
               <p>
                 <span className="uppercase text-neon-g">Encoded String: </span>
-                {encodedString}
+                <ReadMore content={encodedString} />
               </p>
               <p>
                 <span className="uppercase text-neon-g">
