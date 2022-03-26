@@ -121,6 +121,6 @@ footer p {
 
 @media (min-width: 45em) {
   .encodedValues > p {
-    width: 5rem;
+    width: 12rem;
   }
 }
