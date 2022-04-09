@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Huffman-Coding/static/css/main.ffe40011.css",
-    "main.js": "/Huffman-Coding/static/js/main.b88cb40d.js",
+    "main.css": "/Huffman-Coding/static/css/main.d251eb91.css",
+    "main.js": "/Huffman-Coding/static/js/main.05d8495e.js",
     "static/js/787.36d585e0.chunk.js": "/Huffman-Coding/static/js/787.36d585e0.chunk.js",
     "index.html": "/Huffman-Coding/index.html",
-    "main.ffe40011.css.map": "/Huffman-Coding/static/css/main.ffe40011.css.map",
-    "main.b88cb40d.js.map": "/Huffman-Coding/static/js/main.b88cb40d.js.map",
+    "main.d251eb91.css.map": "/Huffman-Coding/static/css/main.d251eb91.css.map",
+    "main.05d8495e.js.map": "/Huffman-Coding/static/js/main.05d8495e.js.map",
     "787.36d585e0.chunk.js.map": "/Huffman-Coding/static/js/787.36d585e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffe40011.css",
-    "static/js/main.b88cb40d.js"
+    "static/css/main.d251eb91.css",
+    "static/js/main.05d8495e.js"
   ]
 }
