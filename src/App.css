@@ -43,8 +43,26 @@
   resize: vertical;
 }
 
+.extra-options-container {
+  display: flex;
+  gap: 5px;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.extra-options-container select {
+  background: var(--dark-blue-black);
+  border: none;
+  padding: 5px 15px;
+}
+
+#showFrequencies {
+  margin: 5px;
+  cursor: pointer;
+}
+
 .decodeValueContainer {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .decodeValueContainer > p {
@@ -120,7 +138,15 @@ footer p {
 }
 
 @media (min-width: 45em) {
+  .extra-options-container {
+    gap: 20px;
+  }
+
   .encodedValues > p {
     width: 12rem;
+  }
+
+  .decodeValueContainer {
+    margin-top: 1.5rem;
   }
 }

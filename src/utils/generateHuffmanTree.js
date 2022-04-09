@@ -1,5 +1,6 @@
 // Heap Implementation at NPM Package: github.com/qiao/heap.js
 import Heap from "heap";
+import LinearPriorityQueue from "./LinearPriorityQueue";
 
 // Creating a tree
 class Node {
@@ -28,28 +29,38 @@ const getEncoding = (node, code, huffmanCodes) => {
   }
 };
 
-const generateHuffmanTree = (message) => {
-  // First calculate the frequency for every character
-  const freq = new Map();
-  for (let i = 0; i < message.length; i++) {
-    if (freq.has(message[i])) {
-      let oldValue = freq.get(message[i]);
-      freq.set(message[i], oldValue + 1);
-    } else {
-      freq.set(message[i], 1);
-    }
+const getHuffmanUsingLinear = (freq) => {
+  // Create Node for every key with frequency in it
+  let pq = new LinearPriorityQueue();
+  for (const [key, value] of freq.entries()) {
+    // console.log(key, value);
+
+    let temp = new Node(key);
+    temp.frequency = value;
+    pq.insert(temp);
   }
 
-  if (freq.size === 1) {
-    if (message[0] !== "*") freq.set("*", 0);
-    else freq.set("+", 0);
+  // Combine the first two lowest frequency nodes till only one node is remaining
+  while (pq.size() !== 1) {
+    // console.log(pq.size());
+
+    let temp1 = pq.delete();
+    let temp2 = pq.delete();
+
+    let newFrequency = temp1.frequency + temp2.frequency;
+
+    let node = new Node(-1);
+    node.frequency = newFrequency;
+    node.left = temp1;
+    node.right = temp2;
+
+    pq.insert(node);
   }
 
-  // Display the Frequencies
-  // for (const [key, value] of freq.entries()) {
-  //   console.log(key, value);
-  // }
+  return pq.delete();
+};
 
+const getHuffmanUsingHeap = (freq) => {
   // Create Node for every key with frequency in it
   let minHeap = new Heap((a, b) => a.frequency - b.frequency);
   for (const [key, value] of freq.entries()) {
@@ -72,7 +83,39 @@ const generateHuffmanTree = (message) => {
     minHeap.push(node);
   }
 
-  let root = minHeap.pop();
+  return minHeap.pop();
+};
+
+const generateHuffmanTree = (message, isLinearAlgorithm) => {
+  // First calculate the frequency for every character
+  const freq = new Map();
+  for (let i = 0; i < message.length; i++) {
+    if (freq.has(message[i])) {
+      let oldValue = freq.get(message[i]);
+      freq.set(message[i], oldValue + 1);
+    } else {
+      freq.set(message[i], 1);
+    }
+  }
+
+  if (freq.size === 1) {
+    if (message[0] !== "*") freq.set("*", 0);
+    else freq.set("+", 0);
+  }
+
+  // Display the Frequencies
+  // for (const [key, value] of freq.entries()) {
+  //   console.log(key, value);
+  // }
+
+  let root = null;
+  if (isLinearAlgorithm) {
+    // console.log("Linear");
+    root = getHuffmanUsingLinear(freq);
+  } else {
+    // console.log("Heap");
+    root = getHuffmanUsingHeap(freq);
+  }
 
   // Get Encoding
   const huffmanCodes = new Map();

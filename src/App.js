@@ -18,10 +18,14 @@ const App = () => {
   const [normalBinarySize, setNormalBinarySize] = useState(0);
   const [bitsSaved, setBitsSaved] = useState(null);
 
+  const [algorithmType, setAlgorithmType] = useState("linear");
+  const [showFrequencies, setShowFrequencies] = useState(false);
+
   useEffect(() => {
     if (message.length === 0) return;
 
-    let [node, huffmanCodes] = generateHuffmanTree(message);
+    let isLinearAlgorithm = algorithmType === "linear";
+    let [node, huffmanCodes] = generateHuffmanTree(message, isLinearAlgorithm);
     setRoot(node);
     setCodes(huffmanCodes);
 
@@ -42,7 +46,7 @@ const App = () => {
     setNormalBinarySize(message.length * 8);
 
     setBitsSaved(message.length * 8 - result.length);
-  }, [message]);
+  }, [message, algorithmType]);
 
   return (
     <div className="App">
@@ -57,6 +61,27 @@ const App = () => {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Enter your message..."
           />
+        </div>
+
+        <div className="extra-options-container">
+          <select
+            value={algorithmType}
+            onChange={(e) => setAlgorithmType(e.target.value)}
+          >
+            <option value="linear">Linear Priority Queue</option>
+            <option value="heap">Heap Priority Queue</option>
+          </select>
+
+          <div className="check-box">
+            <input
+              type="checkbox"
+              id="showFrequencies"
+              name="showFrequencies"
+              checked={showFrequencies}
+              onChange={(e) => setShowFrequencies(e.target.checked)}
+            />
+            <label htmlFor="showFrequencies">Show Frequencies</label>
+          </div>
         </div>
 
         <div className="decodeValueContainer">
@@ -103,11 +128,13 @@ const App = () => {
       </section>
 
       <div className="binaryTreeContainer">
-        <BinaryTree root={root} />
-        {bitsSaved && <div className="arrow-container">
-          <FaArrowUp className="arrow-up" />
-          <p>{bitsSaved} Bits Saved!!</p>
-        </div>}
+        <BinaryTree root={root} showFrequencies={showFrequencies} />
+        {bitsSaved && (
+          <div className="arrow-container">
+            <FaArrowUp className="arrow-up" />
+            <p>{bitsSaved} Bits Saved!!</p>
+          </div>
+        )}
       </div>
 
       <footer>

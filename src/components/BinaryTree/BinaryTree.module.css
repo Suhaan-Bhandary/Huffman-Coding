@@ -80,6 +80,8 @@
   margin-inline: 1.5rem;
 
   background-color: #fff;
+  color: black;
+  font-weight: 600;
 }
 
 .leafNodes {
